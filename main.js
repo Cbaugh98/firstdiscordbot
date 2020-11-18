@@ -3,13 +3,14 @@ const { prefix, token } = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+
 client.once('ready', () => {
 	console.log('pong is online!');
 });
 
 
 client.on('message', message => {
-
+	//this first if statement checks if the message is from bot or if message has prefix
 	if(message.content.startsWith(`${prefix}`) && (message.author.bot === false)) {
 		if(message.content.toLocaleLowerCase().startsWith(`${prefix}ping`)) {
 			message.channel.send('pong!');
@@ -22,6 +23,7 @@ client.on('message', message => {
 			console.log('I see nothing');
 		}
 	}
+	//random checks kinda gross but I was kinda just playing aound with what i could do here
 	if(message.content.toLocaleLowerCase().startsWith('error')) {
 		message.channel.send('https://cdn.discordapp.com/attachments/303481988382326784/754235178871685201/puustb57wo041.png');
 	}
